@@ -22,6 +22,7 @@
 		02C3415C29C8196D00A7A5B3 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3415B29C8196D00A7A5B3 /* OTPView.swift */; };
 		02C3415E29C819A400A7A5B3 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3415D29C819A400A7A5B3 /* Charts.swift */; };
 		02C3416029C81D3700A7A5B3 /* HandlingMultipleEventsOnCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3415F29C81D3600A7A5B3 /* HandlingMultipleEventsOnCells.swift */; };
+		02F4457329CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4457229CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		02C3415B29C8196D00A7A5B3 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		02C3415D29C819A400A7A5B3 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		02C3415F29C81D3600A7A5B3 /* HandlingMultipleEventsOnCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMultipleEventsOnCells.swift; sourceTree = "<group>"; };
+		02F4457229CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				02C3415B29C8196D00A7A5B3 /* OTPView.swift */,
 				02C3415D29C819A400A7A5B3 /* Charts.swift */,
 				02C3415F29C81D3600A7A5B3 /* HandlingMultipleEventsOnCells.swift */,
+				02F4457229CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift */,
 			);
 			path = SwiftUI_4.0;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				02C3414D29C8173C00A7A5B3 /* AudioBookView.swift in Sources */,
 				02C3413C29C8157F00A7A5B3 /* SwiftUI_4_0App.swift in Sources */,
 				02C3415829C818C800A7A5B3 /* NavigationStackBootcamp4.swift in Sources */,
+				02F4457329CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift in Sources */,
 				02C3415229C8182400A7A5B3 /* NavigationStackBootcamp1.swift in Sources */,
 				02C3415629C8188900A7A5B3 /* NavigationStackBootcamp3.swift in Sources */,
 				02C3415A29C818F300A7A5B3 /* NavigationStackBootcamp5.swift in Sources */,
