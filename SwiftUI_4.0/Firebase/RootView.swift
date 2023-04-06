@@ -19,11 +19,11 @@ struct RootView: View {
         }
         .onAppear {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-            self.showSignInView = authUser == nil ? true : false
+            self.showSignInView = authUser == nil
         }
         .fullScreenCover(isPresented: $showSignInView) {
             NavigationStack {
-                AuthenticationView()
+                AuthenticationView(showSignInView: $showSignInView)
             }
         }
     }
