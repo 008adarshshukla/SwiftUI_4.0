@@ -36,6 +36,16 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: user)
     }
     
+    
+    
+    //sign Out
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+}
+
+//MARK: Sign in email
+extension AuthenticationManager {
     //signs up the user
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
@@ -76,9 +86,22 @@ final class AuthenticationManager {
         
         try await user.updateEmail(to: newEmail)
     }
+}
+
+
+//MARK: Sign in SSOG
+extension AuthenticationManager {
     
-    //sign Out
-    func signOut() throws {
-        try Auth.auth().signOut()
+    //MARK: Add a field GIDClientID in info.plist file of the app. We can get the value from GoogleServicesInfo. plist file with key as CLIENT_ID.
+    
+    @discardableResult
+    func signInWithGoogle(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
+        let credential = GoogleAuthProvider.credential(withIDToken: tokens.idToken, accessToken: tokens.accessToken)
+        return try await signIn(credential: credential)
+    }
+    
+    func signIn(credential: AuthCredential) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(with: credential)
+        return AuthDataResultModel(user: authDataResult.user)
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import GoogleSignIn
 
 @main
 struct SwiftUI_4_0App: App {
@@ -27,5 +28,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         print("Firebase Configured!")
         
         return true
+    }
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
 }
