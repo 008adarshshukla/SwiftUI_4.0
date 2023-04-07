@@ -18,6 +18,9 @@
 		02491D5A29DE980C0029139D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 02491D5929DE980C0029139D /* GoogleSignIn */; };
 		02491D5C29DE980C0029139D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 02491D5B29DE980C0029139D /* GoogleSignInSwift */; };
 		02491D6029DEA7050029139D /* Utillities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02491D5F29DEA7050029139D /* Utillities.swift */; };
+		02B68C8029E028A2008BFBD5 /* VerticalScrollViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */; };
+		02B68C8229E0A580008BFBD5 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */; };
+		02B68C8429E0B36E008BFBD5 /* ScrollViewBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C8329E0B36E008BFBD5 /* ScrollViewBottom.swift */; };
 		02C3413C29C8157F00A7A5B3 /* SwiftUI_4_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3413B29C8157F00A7A5B3 /* SwiftUI_4_0App.swift */; };
 		02C3413E29C8157F00A7A5B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3413D29C8157F00A7A5B3 /* ContentView.swift */; };
 		02C3414029C8158000A7A5B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C3413F29C8158000A7A5B3 /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 		0220F58629CC582700AC2E09 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		02491D5D29DE99760029139D /* SwiftUI-4-0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUI-4-0-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02491D5F29DEA7050029139D /* Utillities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillities.swift; sourceTree = "<group>"; };
+		02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewHeight.swift; sourceTree = "<group>"; };
+		02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
+		02B68C8329E0B36E008BFBD5 /* ScrollViewBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewBottom.swift; sourceTree = "<group>"; };
 		02C3413829C8157F00A7A5B3 /* SwiftUI_4.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_4.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C3413B29C8157F00A7A5B3 /* SwiftUI_4_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_4_0App.swift; sourceTree = "<group>"; };
 		02C3413D29C8157F00A7A5B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +110,16 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		02B68C7E29E02872008BFBD5 /* ScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */,
+				02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */,
+				02B68C8329E0B36E008BFBD5 /* ScrollViewBottom.swift */,
+			);
+			path = ScrollView;
+			sourceTree = "<group>";
+		};
 		02C3412F29C8157F00A7A5B3 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +141,7 @@
 		02C3413A29C8157F00A7A5B3 /* SwiftUI_4.0 */ = {
 			isa = PBXGroup;
 			children = (
+				02B68C7E29E02872008BFBD5 /* ScrollView */,
 				02491D5D29DE99760029139D /* SwiftUI-4-0-Info.plist */,
 				02C3413B29C8157F00A7A5B3 /* SwiftUI_4_0App.swift */,
 				02F4457629CB997E00FD0E52 /* Firebase */,
@@ -270,10 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02B68C8429E0B36E008BFBD5 /* ScrollViewBottom.swift in Sources */,
 				02C3415E29C819A400A7A5B3 /* Charts.swift in Sources */,
 				02C3415C29C8196D00A7A5B3 /* OTPView.swift in Sources */,
 				02C3414B29C816E700A7A5B3 /* AudioBookModel.swift in Sources */,
 				0220F57F29CC0E4600AC2E09 /* AuthenticationManager.swift in Sources */,
+				02B68C8229E0A580008BFBD5 /* ScrollViewOffset.swift in Sources */,
 				02C3414F29C8177800A7A5B3 /* PostHTTPRequest.swift in Sources */,
 				0220F58329CC4A0600AC2E09 /* SettingsView.swift in Sources */,
 				02C3415429C8185800A7A5B3 /* NavigationStackBootcamp2.swift in Sources */,
@@ -286,6 +305,7 @@
 				02C3415829C818C800A7A5B3 /* NavigationStackBootcamp4.swift in Sources */,
 				02F4457329CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift in Sources */,
 				02C3415229C8182400A7A5B3 /* NavigationStackBootcamp1.swift in Sources */,
+				02B68C8029E028A2008BFBD5 /* VerticalScrollViewHeight.swift in Sources */,
 				0220F58529CC4F3700AC2E09 /* TabViewColor.swift in Sources */,
 				0220F57D29CC0BEB00AC2E09 /* SignInEmailView.swift in Sources */,
 				02C3415629C8188900A7A5B3 /* NavigationStackBootcamp3.swift in Sources */,
