@@ -33,6 +33,7 @@
 		02C3415C29C8196D00A7A5B3 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3415B29C8196D00A7A5B3 /* OTPView.swift */; };
 		02C3415E29C819A400A7A5B3 /* Charts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3415D29C819A400A7A5B3 /* Charts.swift */; };
 		02C3416029C81D3700A7A5B3 /* HandlingMultipleEventsOnCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3415F29C81D3600A7A5B3 /* HandlingMultipleEventsOnCells.swift */; };
+		02E8DD4B29DFE7C0006D005C /* GenericsViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E8DD4A29DFE7C0006D005C /* GenericsViewBuilder.swift */; };
 		02F4457329CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4457229CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift */; };
 		02F4457529CB7DC900FD0E52 /* GuageBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F4457429CB7DC900FD0E52 /* GuageBootcamp.swift */; };
 		02F4457B29CB9C9000FD0E52 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 02F4457A29CB9C9000FD0E52 /* FirebaseAnalytics */; };
@@ -66,6 +67,7 @@
 		02C3415B29C8196D00A7A5B3 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		02C3415D29C819A400A7A5B3 /* Charts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charts.swift; sourceTree = "<group>"; };
 		02C3415F29C81D3600A7A5B3 /* HandlingMultipleEventsOnCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingMultipleEventsOnCells.swift; sourceTree = "<group>"; };
+		02E8DD4A29DFE7C0006D005C /* GenericsViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsViewBuilder.swift; sourceTree = "<group>"; };
 		02F4457229CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupBootcamp.swift; sourceTree = "<group>"; };
 		02F4457429CB7DC900FD0E52 /* GuageBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuageBootcamp.swift; sourceTree = "<group>"; };
 		02F4457E29CBA13D00FD0E52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				02F4457429CB7DC900FD0E52 /* GuageBootcamp.swift */,
 				0220F58429CC4F3700AC2E09 /* TabViewColor.swift */,
 				0220F58629CC582700AC2E09 /* NavigationBarColor.swift */,
+				02E8DD4A29DFE7C0006D005C /* GenericsViewBuilder.swift */,
 			);
 			path = SwiftUI_4.0;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				0220F58729CC582700AC2E09 /* NavigationBarColor.swift in Sources */,
 				0220F57B29CC0A9400AC2E09 /* AuthenticationView.swift in Sources */,
 				02491D6029DEA7050029139D /* Utillities.swift in Sources */,
+				02E8DD4B29DFE7C0006D005C /* GenericsViewBuilder.swift in Sources */,
 				02C3415A29C818F300A7A5B3 /* NavigationStackBootcamp5.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
