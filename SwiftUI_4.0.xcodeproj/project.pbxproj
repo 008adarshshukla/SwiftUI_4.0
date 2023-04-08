@@ -18,6 +18,7 @@
 		02491D5A29DE980C0029139D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 02491D5929DE980C0029139D /* GoogleSignIn */; };
 		02491D5C29DE980C0029139D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 02491D5B29DE980C0029139D /* GoogleSignInSwift */; };
 		02491D6029DEA7050029139D /* Utillities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02491D5F29DEA7050029139D /* Utillities.swift */; };
+		029373D329E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029373D229E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift */; };
 		02B68C8029E028A2008BFBD5 /* VerticalScrollViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */; };
 		02B68C8229E0A580008BFBD5 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */; };
 		02B68C8629E0BAF8008BFBD5 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C8529E0BAF8008BFBD5 /* Pagination.swift */; };
@@ -56,6 +57,7 @@
 		0220F58629CC582700AC2E09 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		02491D5D29DE99760029139D /* SwiftUI-4-0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUI-4-0-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02491D5F29DEA7050029139D /* Utillities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillities.swift; sourceTree = "<group>"; };
+		029373D229E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewTopIndicator.swift; sourceTree = "<group>"; };
 		02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewHeight.swift; sourceTree = "<group>"; };
 		02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
 		02B68C8529E0BAF8008BFBD5 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */,
 				02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */,
 				02B68C8529E0BAF8008BFBD5 /* Pagination.swift */,
+				029373D229E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift */,
 			);
 			path = ScrollView;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				02C3415829C818C800A7A5B3 /* NavigationStackBootcamp4.swift in Sources */,
 				02B68C8629E0BAF8008BFBD5 /* Pagination.swift in Sources */,
 				02F4457329CB7B5900FD0E52 /* DisclosureGroupBootcamp.swift in Sources */,
+				029373D329E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift in Sources */,
 				02C3415229C8182400A7A5B3 /* NavigationStackBootcamp1.swift in Sources */,
 				02B68C8029E028A2008BFBD5 /* VerticalScrollViewHeight.swift in Sources */,
 				0220F58529CC4F3700AC2E09 /* TabViewColor.swift in Sources */,

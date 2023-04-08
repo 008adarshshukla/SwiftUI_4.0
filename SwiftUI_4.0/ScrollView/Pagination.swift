@@ -12,9 +12,6 @@ import FirebaseFirestoreSwift
 struct Pagination: View {
     
     @StateObject private var viewModel = PaginationViewModel()
-    @State private var height: CGFloat = .zero
-    @State private var scrollOffset: CGFloat = 0
-    @State var cardHeight: CGFloat = 0
     @State var scrollViewOffset: CGFloat = 0
     @State var startOffset: CGFloat = 0
     
@@ -23,7 +20,7 @@ struct Pagination: View {
             ScrollView(showsIndicators: true, content: {
                 VStack {
                     ForEach(viewModel.users, id: \.self) { user in
-                        UserRowView(user: user, cardHeight: $cardHeight)
+                        UserRowView(user: user)
                             .onAppear {
                                 if viewModel.shouldLoadNextData(name: user.name) {
                                     //Load further data
@@ -171,7 +168,6 @@ class PaginationViewModel: ObservableObject {
 struct UserRowView: View {
     
     let user: UserDetail
-    @Binding var cardHeight: CGFloat
     
     var body: some View {
         VStack {
@@ -214,27 +210,7 @@ struct UserRowView: View {
  */
 
 /*
- Apply to VStack in Scroll View
- 
- //                .background (
- //                    GeometryReader { proxy -> Color in
- //                        DispatchQueue.main.async {
- //                            if startOffset == 0 {
- //                                self.startOffset = proxy.frame(in: .global).minY
- //                            }
- //
- //                            let offset = proxy.frame(in: .global).minY
- //                            self.scrollViewOffset = offset - startOffset
- //
- //                            print(self.scrollViewOffset)
- //                        }
- //                        return Color.clear
- //                    }
- //                        .frame(width: 0, height: 0)
- //                    ,alignment: .top
- //                )
- 
- This gives scroll view offset when the scroll view is at the top.
+ Idea for Infinite Scroll - As soon as the 2nd last or the 3rd last view appears then we can call the next batch of data.
  */
 
 
