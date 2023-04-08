@@ -31,14 +31,6 @@ struct Pagination: View {
                     }
                 }
         }
-        .task {
-            do {
-                try await viewModel.getAllUsers()
-            } catch {
-                print("-----error")
-                print(error)
-            }
-        }
     }
 }
 
@@ -59,6 +51,7 @@ struct UserDetail: Codable, Hashable {
     let name: String
 }
 
+@MainActor
 class PaginationViewModel: ObservableObject {
     
     let db = Firestore.firestore()
@@ -102,18 +95,10 @@ class PaginationViewModel: ObservableObject {
             UserDetail(age: 44, earning: 110000, name: "Peter"),
             UserDetail(age: 25, earning: 42000, name: "Samantha")
         ]
-
         
-        let allUsers = AllUsers(users: users)
-        try db.collection("PaginationUsers").document(documentID).setData(from: allUsers)
-    }
-    
-    func getAllUsers() async throws {
-        
-        print(self.documentID)
-        let allUsersResult = try await db.collection("PaginationUsers").document(documentID).getDocument(as: AllUsers.self)
-        self.users = allUsersResult.users
-        print(self.users)
+        for user in users {
+            try db.collection("PaginationUsers").document(user.name).setData(from: user)
+        }
     }
     
 }
@@ -156,6 +141,10 @@ struct UserRowView: View {
  
  let encodedNewTextPostId = try! Firestore.Encoder().encode(newTextPostId)
  here newTextPostId is the object of the struct.
+ */
+
+/*
+ Note - Pagination means getting limited number of documents.
  */
 
 
