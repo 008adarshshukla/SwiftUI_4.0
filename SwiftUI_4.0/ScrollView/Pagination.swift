@@ -20,11 +20,11 @@ struct Pagination: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Add") {
                             
-                                do {
-                                    try viewModel.addUsersToDatabase()
-                                } catch {
-                                    print("error putting data into database.")
-                                }
+                            do {
+                                try viewModel.addUsersToDatabase()
+                            } catch {
+                                print("error putting data into database.")
+                            }
                             
                         }
                         .buttonStyle(.bordered)
@@ -94,18 +94,10 @@ class PaginationViewModel: ObservableObject {
             UserDetail(name: "Lily", age: 27, earning: 55000.0),
             UserDetail(name: "Gabriel", age: 25, earning: 570)
         ]
-//        //conveting each item to the dictionary.
-//        let usersDictionary = allUsers.map{
-//            $0.toDict()
-//        }
         
         let allUsers = AllUsers(users: users)
         try db.collection("PaginationUsers").document(documentID).setData(from: allUsers)
     }
-    
-//    func getUsers() async throws {
-//        db.collection("PaginationUsers").document(documentID).get
-//    }
     
 }
 
