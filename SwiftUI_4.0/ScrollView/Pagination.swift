@@ -31,8 +31,14 @@ struct Pagination: View {
                     }
                 }
         }
-        
-        
+        .task {
+            do {
+                try await viewModel.getAllUsers()
+            } catch {
+                print("-----error")
+                print(error)
+            }
+        }
     }
 }
 
@@ -47,56 +53,67 @@ struct AllUsers: Codable, Identifiable {
     let users: [UserDetail]
 }
 
-struct UserDetail: Codable {
-    let name: String
+struct UserDetail: Codable, Hashable {
     let age: Int
-    let earning: Float
+    let earning: Int
+    let name: String
 }
 
 class PaginationViewModel: ObservableObject {
     
     let db = Firestore.firestore()
     
-    let documentID: String = UUID().uuidString
+    let documentID: String = "A830AC94-E619-4E49-82D3-236B8D3A01BE"
     
     @Published var users: [UserDetail] = []
     
     //Putting th data into the firestore.
     func addUsersToDatabase() throws {
+        
         let users: [UserDetail] = [
-            UserDetail(name: "John", age: 27, earning: 50000.0),
-            UserDetail(name: "Emily", age: 34, earning: 60000.0),
-            UserDetail(name: "Mike", age: 22, earning: 45000.0),
-            UserDetail(name: "Jessica", age: 30, earning: 80000.0),
-            UserDetail(name: "Chris", age: 25, earning: 55000.0),
-            UserDetail(name: "Sarah", age: 29, earning: 65000.0),
-            UserDetail(name: "David", age: 26, earning: 52000.0),
-            UserDetail(name: "Olivia", age: 31, earning: 75000.0),
-            UserDetail(name: "Jacob", age: 28, earning: 58000.0),
-            UserDetail(name: "Grace", age: 23, earning: 48000.0),
-            UserDetail(name: "Ethan", age: 35, earning: 90000.0),
-            UserDetail(name: "Ava", age: 27, earning: 52000.0),
-            UserDetail(name: "Noah", age: 24, earning: 56000.0),
-            UserDetail(name: "Isabella", age: 32, earning: 72000.0),
-            UserDetail(name: "Luke", age: 26, earning: 51000.0),
-            UserDetail(name: "Sophia", age: 29, earning: 68000.0),
-            UserDetail(name: "Caleb", age: 28, earning: 59000.0),
-            UserDetail(name: "Chloe", age: 25, earning: 54000.0),
-            UserDetail(name: "Daniel", age: 33, earning: 67000.0),
-            UserDetail(name: "Madison", age: 27, earning: 58000.0),
-            UserDetail(name: "Matthew", age: 31, earning: 71000.0),
-            UserDetail(name: "Ella", age: 24, earning: 50000.0),
-            UserDetail(name: "Liam", age: 26, earning: 53000.0),
-            UserDetail(name: "Natalie", age: 30, earning: 65000.0),
-            UserDetail(name: "Mason", age: 28, earning: 62000.0),
-            UserDetail(name: "Avery", age: 23, earning: 47000.0),
-            UserDetail(name: "Owen", age: 34, earning: 78000.0),
-            UserDetail(name: "Lily", age: 27, earning: 55000.0),
-            UserDetail(name: "Gabriel", age: 25, earning: 570)
+            UserDetail(age: 28, earning: 50000, name: "John"),
+            UserDetail(age: 35, earning: 75000, name: "Emily"),
+            UserDetail(age: 21, earning: 25000, name: "Mike"),
+            UserDetail(age: 42, earning: 100000, name: "Sarah"),
+            UserDetail(age: 30, earning: 60000, name: "David"),
+            UserDetail(age: 25, earning: 40000, name: "Amanda"),
+            UserDetail(age: 39, earning: 90000, name: "Adam"),
+            UserDetail(age: 32, earning: 65000, name: "Rachel"),
+            UserDetail(age: 27, earning: 35000, name: "Daniel"),
+            UserDetail(age: 45, earning: 120000, name: "Jessica"),
+            UserDetail(age: 23, earning: 28000, name: "Sophie"),
+            UserDetail(age: 37, earning: 82000, name: "Tom"),
+            UserDetail(age: 29, earning: 55000, name: "Oliver"),
+            UserDetail(age: 31, earning: 67000, name: "Amy"),
+            UserDetail(age: 26, earning: 38000, name: "Ben"),
+            UserDetail(age: 41, earning: 95000, name: "Linda"),
+            UserDetail(age: 34, earning: 71000, name: "Harry"),
+            UserDetail(age: 22, earning: 23000, name: "Karen"),
+            UserDetail(age: 36, earning: 78000, name: "Mark"),
+            UserDetail(age: 33, earning: 69000, name: "Melissa"),
+            UserDetail(age: 24, earning: 32000, name: "James"),
+            UserDetail(age: 38, earning: 86000, name: "Julia"),
+            UserDetail(age: 43, earning: 105000, name: "Andrew"),
+            UserDetail(age: 40, earning: 90000, name: "Catherine"),
+            UserDetail(age: 20, earning: 20000, name: "Jake"),
+            UserDetail(age: 28, earning: 51000, name: "Natalie"),
+            UserDetail(age: 30, earning: 59000, name: "Greg"),
+            UserDetail(age: 27, earning: 34000, name: "Isabel"),
+            UserDetail(age: 44, earning: 110000, name: "Peter"),
+            UserDetail(age: 25, earning: 42000, name: "Samantha")
         ]
+
         
         let allUsers = AllUsers(users: users)
         try db.collection("PaginationUsers").document(documentID).setData(from: allUsers)
+    }
+    
+    func getAllUsers() async throws {
+        
+        print(self.documentID)
+        let allUsersResult = try await db.collection("PaginationUsers").document(documentID).getDocument(as: AllUsers.self)
+        self.users = allUsersResult.users
+        print(self.users)
     }
     
 }
@@ -120,7 +137,7 @@ struct UserRowView: View {
                 
                 Spacer()
                 
-                Text("$ \(String(format: "%.2f", user.earning))")
+                Text("$ \(user.earning)")
                     .font(.system(size: 15))
                     .fontWeight(.semibold)
             }
@@ -131,12 +148,6 @@ struct UserRowView: View {
                 .foregroundColor(.black.opacity(0.1))
         }
         .padding(.horizontal)
-    }
-}
-
-extension UserDetail {
-    func toDict() -> [String: Any] {
-        return ["name": name, "age": age, "earning": earning]
     }
 }
 
