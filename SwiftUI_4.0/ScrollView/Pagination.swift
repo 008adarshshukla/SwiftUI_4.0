@@ -12,24 +12,53 @@ import FirebaseFirestoreSwift
 struct Pagination: View {
     
     @StateObject private var viewModel = PaginationViewModel()
+    @State private var height: CGFloat = .zero
+    @State private var scrollOffset: CGFloat = 0
+    @State var cardHeight: CGFloat = 0
+    @State var scrollViewOffset: CGFloat = 0
+    @State var startOffset: CGFloat = 0
     
     var body: some View {
         NavigationStack {
-            Text("Hello")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Add") {
-                            
-                            do {
-                                try viewModel.addUsersToDatabase()
-                            } catch {
-                                print("error putting data into database.")
+            ScrollView(showsIndicators: true, content: {
+                VStack {
+                    ForEach(viewModel.users, id: \.self) { user in
+                        UserRowView(user: user, cardHeight: $cardHeight)
+                            .onAppear {
+                                if viewModel.shouldLoadNextData(name: user.name) {
+                                    //Load further data
+                                    Task {
+                                        do {
+                                            try await viewModel.loadNextBatch()
+                                        }
+                                    }
+                                }
                             }
-                            
-                        }
-                        .buttonStyle(.bordered)
                     }
                 }
+            })
+            .navigationTitle("Users")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add") {
+                        
+                        do {
+                            try viewModel.addUsersToDatabase()
+                        } catch {
+                            print("error putting data into database.")
+                        }
+                        
+                    }
+                    .buttonStyle(.bordered)
+                }
+            }
+        }
+        .task {
+            do {
+                try await viewModel.getUsers()
+            } catch {
+                print(error)
+            }
         }
     }
 }
@@ -59,6 +88,8 @@ class PaginationViewModel: ObservableObject {
     let documentID: String = "A830AC94-E619-4E49-82D3-236B8D3A01BE"
     
     @Published var users: [UserDetail] = []
+    
+    @Published var lastDococument: QueryDocumentSnapshot!
     
     //Putting th data into the firestore.
     func addUsersToDatabase() throws {
@@ -101,11 +132,46 @@ class PaginationViewModel: ObservableObject {
         }
     }
     
+    //getting users in batches (pagination)
+    func getUsers() async throws{
+        let querySnapshot = try await db.collection("PaginationUsers").order(by: "name").limit(to: 10).getDocuments()
+        
+        if !querySnapshot.documents.isEmpty {
+            for document in querySnapshot.documents {
+                let newUser = try document.data(as: UserDetail.self)
+                self.users.append(newUser)
+            }
+        }
+        
+        self.lastDococument = querySnapshot.documents.last
+    }
+    
+    func loadNextBatch() async throws {
+        let querySnapshot = try await db.collection("PaginationUsers").order(by: "name").start(afterDocument: self.lastDococument).limit(to: 5).getDocuments()
+        
+        if !querySnapshot.documents.isEmpty {
+            for document in querySnapshot.documents {
+                let newUser = try document.data(as: UserDetail.self)
+                self.users.append(newUser)
+            }
+        }
+        
+        self.lastDococument = querySnapshot.documents.last
+    }
+    
+    func shouldLoadNextData(name : String) -> Bool {
+        if name == users[users.count - 2].name {
+            return true
+        }
+        return false
+    }
+    
 }
 
 struct UserRowView: View {
     
     let user: UserDetail
+    @Binding var cardHeight: CGFloat
     
     var body: some View {
         VStack {
@@ -145,6 +211,30 @@ struct UserRowView: View {
 
 /*
  Note - Pagination means getting limited number of documents.
+ */
+
+/*
+ Apply to VStack in Scroll View
+ 
+ //                .background (
+ //                    GeometryReader { proxy -> Color in
+ //                        DispatchQueue.main.async {
+ //                            if startOffset == 0 {
+ //                                self.startOffset = proxy.frame(in: .global).minY
+ //                            }
+ //
+ //                            let offset = proxy.frame(in: .global).minY
+ //                            self.scrollViewOffset = offset - startOffset
+ //
+ //                            print(self.scrollViewOffset)
+ //                        }
+ //                        return Color.clear
+ //                    }
+ //                        .frame(width: 0, height: 0)
+ //                    ,alignment: .top
+ //                )
+ 
+ This gives scroll view offset when the scroll view is at the top.
  */
 
 
