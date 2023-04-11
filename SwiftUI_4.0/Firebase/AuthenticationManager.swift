@@ -89,7 +89,7 @@ extension AuthenticationManager {
 }
 
 
-//MARK: Sign in SSOG
+//MARK: Sign in SSO
 extension AuthenticationManager {
     
     //MARK: Add a field GIDClientID in info.plist file of the app. We can get the value from GoogleServicesInfo. plist file with key as CLIENT_ID.

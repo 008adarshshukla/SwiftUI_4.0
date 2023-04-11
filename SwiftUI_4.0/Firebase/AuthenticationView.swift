@@ -8,8 +8,6 @@
 import SwiftUI
 import GoogleSignIn
 import GoogleSignInSwift
-import FirebaseAuth
-
 
 struct GoogleSignInResultModel {
     let idToken: String
@@ -68,6 +66,7 @@ struct AuthenticationView: View {
                     } catch {
                         print("error occurred")
                         print(error)
+                        print("----")
                     }
                 }
             }

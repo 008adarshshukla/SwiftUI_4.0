@@ -15,7 +15,7 @@ struct SwiftUI_4_0App: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                Pagination()
+                RootView()
             }
         }
     }
