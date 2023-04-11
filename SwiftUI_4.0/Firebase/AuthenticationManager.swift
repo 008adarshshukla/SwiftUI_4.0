@@ -20,6 +20,11 @@ struct AuthDataResultModel {
     }
 }
 
+enum AuthProviderOptions: String {
+    case email = "password"
+    case google = "google.com"
+}
+
 final class AuthenticationManager {
     
     static let shared = AuthenticationManager()
@@ -36,7 +41,22 @@ final class AuthenticationManager {
         return AuthDataResultModel(user: user)
     }
     
-    
+    //get provider
+    func getProviders() throws -> [AuthProviderOptions] {
+        guard let providerData = Auth.auth().currentUser?.providerData else {
+            throw URLError(.badServerResponse)
+        }
+        var providers: [AuthProviderOptions] = []
+        for provider in providerData {
+            if let option = AuthProviderOptions(rawValue: provider.providerID) {
+                providers.append(option)
+            } else {
+                assertionFailure("Provider option not found: \(provider.providerID)")
+            }
+        }
+        
+        return providers
+    }
     
     //sign Out
     func signOut() throws {
@@ -105,3 +125,8 @@ extension AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
     }
 }
+
+//Note
+/*
+ When signing in with google the provider id is "google.com" on the other hand when signing in email and password then provider id id "password"
+ */

@@ -18,6 +18,7 @@
 		02491D5A29DE980C0029139D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 02491D5929DE980C0029139D /* GoogleSignIn */; };
 		02491D5C29DE980C0029139D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 02491D5B29DE980C0029139D /* GoogleSignInSwift */; };
 		02491D6029DEA7050029139D /* Utillities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02491D5F29DEA7050029139D /* Utillities.swift */; };
+		0250D79129E52EB600234761 /* SignInGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0250D79029E52EB600234761 /* SignInGoogleHelper.swift */; };
 		029373D329E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029373D229E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift */; };
 		02B68C8029E028A2008BFBD5 /* VerticalScrollViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */; };
 		02B68C8229E0A580008BFBD5 /* ScrollViewOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */; };
@@ -57,6 +58,7 @@
 		0220F58629CC582700AC2E09 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		02491D5D29DE99760029139D /* SwiftUI-4-0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUI-4-0-Info.plist"; sourceTree = SOURCE_ROOT; };
 		02491D5F29DEA7050029139D /* Utillities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utillities.swift; sourceTree = "<group>"; };
+		0250D79029E52EB600234761 /* SignInGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInGoogleHelper.swift; sourceTree = "<group>"; };
 		029373D229E1FC1000EAF9E7 /* ScrollViewTopIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewTopIndicator.swift; sourceTree = "<group>"; };
 		02B68C7F29E028A2008BFBD5 /* VerticalScrollViewHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewHeight.swift; sourceTree = "<group>"; };
 		02B68C8129E0A580008BFBD5 /* ScrollViewOffset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffset.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				0220F57E29CC0E4600AC2E09 /* AuthenticationManager.swift */,
 				0220F58029CC15BE00AC2E09 /* RootView.swift */,
 				0220F58229CC4A0600AC2E09 /* SettingsView.swift */,
+				0250D79029E52EB600234761 /* SignInGoogleHelper.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				02C3415229C8182400A7A5B3 /* NavigationStackBootcamp1.swift in Sources */,
 				02B68C8029E028A2008BFBD5 /* VerticalScrollViewHeight.swift in Sources */,
 				0220F58529CC4F3700AC2E09 /* TabViewColor.swift in Sources */,
+				0250D79129E52EB600234761 /* SignInGoogleHelper.swift in Sources */,
 				0220F57D29CC0BEB00AC2E09 /* SignInEmailView.swift in Sources */,
 				02C3415629C8188900A7A5B3 /* NavigationStackBootcamp3.swift in Sources */,
 				0220F58729CC582700AC2E09 /* NavigationBarColor.swift in Sources */,
