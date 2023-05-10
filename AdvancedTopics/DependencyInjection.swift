@@ -24,6 +24,7 @@ protocol DataServiceProtocol {
     func getData() -> AnyPublisher<[PostsModel], Error>
 }
 
+//MARK: Production Data service
 class ProductionDataService: DataServiceProtocol {
         
     let url: URL
@@ -41,7 +42,7 @@ class ProductionDataService: DataServiceProtocol {
     }
     
 }
-
+//MARK: Mock Data service.
 class MockDataService: DataServiceProtocol {
     
     let testData: [PostsModel]
@@ -107,15 +108,24 @@ struct DependencyInjectionBootcamp: View {
 struct DependencyInjectionBootcamp_Previews: PreviewProvider {
     
     //creating the instance at the very begining.
-    static let dataService = MockDataService(data: [
+    static let mockDataService = MockDataService(data: [
         PostsModel(userId: 1234, id: 1234, title: "test", body: "test")
     ])
     
+    static let productionDataService = ProductionDataService(url: URL(string: "https://jsonplaceholder.typicode.com/posts")!)
+    
     static var previews: some View {
-        DependencyInjectionBootcamp(dataService: dataService)
+        DependencyInjectionBootcamp(dataService: productionDataService)
     }
 }
 
 /*
  Depedency Injection - Whenever we create a class or struct that has dependencies, instead of referencing the dependencies from within the class we can inject the dependency into the class or the struct thrrough the initializer.
+ */
+
+/*
+ How does dependency Injection sove above problems -
+ 1. Now only those classes have access to DataService in which we inject it as the dependency. So it is not globally accessible to all classes and structs like Singletons.
+ 2. Initisers can now be customised.
+ 3. Now we can swap the dependencies (like passing mockDataService or productionDataService)
  */
