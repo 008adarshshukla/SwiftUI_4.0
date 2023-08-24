@@ -30,6 +30,9 @@ struct Country: Identifiable, Hashable {
 
 
 struct CountryListView: View {
+    init() {
+        UINavigationBar.setAnimationsEnabled(false)
+    }
     @StateObject var route = NavigationPathManager()
     var body: some View {
         NavigationStack(path: $route.path) {

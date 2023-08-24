@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct NavigationStackBootcamp: View {
+    @State private var text: String = ""
     var body: some View {
         NavigationStack {
             VStack {
+                Text(text)
+                
+
                 NavigationLink(value: "Value Provided") {
                     Text("Move to second screen.")
                         .buttonStyle(.bordered)
+                        
                     
                 }
                 .buttonStyle(.bordered)

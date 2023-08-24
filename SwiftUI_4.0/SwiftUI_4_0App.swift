@@ -14,9 +14,10 @@ struct SwiftUI_4_0App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                RootView()
-            }
+//            NavigationStack {
+//                RootView()
+//            }
+            TestingNavigation()
         }
     }
 }
